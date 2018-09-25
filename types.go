@@ -1,8 +1,42 @@
-package gochip8
+package main
 
-// GetFontset returns the Chip8 fontset.
-func GetFontset() [80]byte {
-	return [80]byte{
+type Byte uint8
+type Word uint16
+
+type Registers []Byte
+
+func NewRegisters() Registers {
+	return make(Registers, 16)
+}
+
+type Stack []Word
+
+func NewStack() Stack {
+	return make(Stack, 16)
+}
+
+type VideoBuffer []Byte
+
+func NewVideoBuffer() VideoBuffer {
+	return make(VideoBuffer, 2048)
+}
+
+type InputBuffer []Byte
+
+func NewInputBuffer() InputBuffer {
+	return make(InputBuffer, 16)
+}
+
+type Memory []Byte
+
+func NewMemory() Memory {
+	return make(Memory, 4096)
+}
+
+type Fontset []Byte
+
+func NewFontset() Fontset {
+	return Fontset{
 		0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
 		0x20, 0x60, 0x20, 0x20, 0x70, // 1
 		0xF0, 0x10, 0xF0, 0x80, 0xF0, // 2
